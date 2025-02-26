@@ -15,23 +15,35 @@ function mySlice(arr, start = 0, end = arr.length) {
 
 function myIndexOf(arr, item, from = 0) {
   for (let i = from; i < arr.length; i++) {
-    if(arr[i] === item) return i;
+    if (arr[i] === item) return i;
   }
   return -1;
 }
 
 function myIncludes(arr, item, from = 0) {
-  if(Number.isNaN(item)) {
+  if (Number.isNaN(item)) {
     for (let i = from; i < arr.length; i++) {
-      if(Number.isNaN(arr[i])) return true;
+      if (Number.isNaN(arr[i])) return true;
     }
   } else {
     for (let i = from; i < arr.length; i++) {
-      if(arr[i] === item) return true;
+      if (arr[i] === item) return true;
     }
   }
-  
+
   return false;
 }
 
-export { mySlice, myIndexOf, myIncludes };
+function myFilter(array, callback) {
+  const filteredArray = [];
+
+  for (const element of array) {
+    if (callback(element)) {
+      filteredArray.push(element);
+    }
+  }
+
+  return filteredArray;
+}
+
+export { mySlice, myIndexOf, myIncludes, myFilter };
